@@ -9,6 +9,7 @@ h1 {
 
 .TypingArea{
   /* display: block; */
+  margin : 10rem 0rem; 
   padding-left: 0.5rem;   
   min-width: 20rem; 
   border: 0.1rem solid greenyellow;
@@ -28,7 +29,7 @@ pre{
   margin-bottom: 1rem;
 }
 
-.typed{
+.correct{
   color :rgb(186, 226, 52) ; 
 }
 
@@ -36,7 +37,7 @@ pre{
   color :rgb(206, 215, 169)
 }
 
-.wronglytyped{
+.wrong{
   color: rgb(226, 78, 78) ; 
 }
 
