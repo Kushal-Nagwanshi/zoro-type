@@ -9,6 +9,8 @@ h1 {
 
 .TypingArea{
   /* display: block; */
+  overflow: hidden;
+  height: 8rem;
   margin : 10rem 0rem; 
   padding-left: 0.5rem;   
   min-width: 20rem; 
