@@ -1,0 +1,64 @@
+h1 { 
+    color : rgb(214, 239, 111);
+  }
+  
+  .TypingAreaContainer{
+    /* display : block ;  */
+    padding : 0rem 10rem;
+  }
+  
+  .TypingArea{
+    /* display: block; */
+    overflow: hidden;
+    height: 8rem;
+    margin : 10rem 0rem; 
+    padding-left: 0.5rem;   
+    min-width: 20rem; 
+    border: 0.1rem solid greenyellow;
+    border-radius : 0.3rem ; 
+  }
+  
+  .word {
+    display : inline-flex ; 
+  }
+  
+  pre{
+    margin : 0 ; 
+  }
+  .letter{
+    color :rgb(186, 226, 52) ;
+    font-size : 1.2rem ; 
+    margin-bottom: 1rem;
+  }
+  
+  .correct{
+    color :rgb(186, 226, 52) ; 
+  }
+  
+  .untyped{
+    color :rgb(206, 215, 169)
+  }
+  
+  .wrong{
+    color: rgb(226, 78, 78) ; 
+  }
+  
+  .cursor{
+    border-left: 0.15rem solid white;
+    animation: blinking 1s infinite;
+  }
+  
+  /*cursor animation*/
+  @keyframes blinking {
+    0% {border-left-color: transparent}
+    50% {border-left-color: white}
+    100% {border-left-color: transparent}
+  }
+  
+  .startButton{
+    color:rgb(214, 239, 111);
+    background-color: rgb(58, 84, 63);
+    border: 0.2rem solid rgb(33, 33, 33) ;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+  }
