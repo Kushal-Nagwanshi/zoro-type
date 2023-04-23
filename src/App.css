@@ -4,5 +4,27 @@ h1 {
 
 .body{
   /* display : block ;  */
-  padding : 0rem 10rem;
+  padding : 0 0 0 0 ; 
+  padding: 0 clamp(1rem, 10%, 10rem); 
+}
+
+.topbar{
+  margin-top : 2rem ; 
+}
+
+.text .top {
+  color: var(--zoro-light-green1);
+  font-size: 0.8rem;
+  left: 2.5rem;
+  line-height: 0.9rem;
+  position: absolute;
+  top: 0.7rem;
+  transition: color .25s,opacity .25s;
+}
+
+.text {
+    font-size: 3rem;
+    margin-top: -.2em;
+    position: relative;
+    transition: color .25s;
 }

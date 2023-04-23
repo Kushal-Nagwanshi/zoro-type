@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './TypingArea.css'
 import {getLineNumber , typingContentZoro , typingContentTypingIsFun, getWidth , isValidKey} from '../util' 
+import useTimer from '../Timer/Timer';
 
 let initialTypingContent = typingContentTypingIsFun ; 
 initialTypingContent = typingContentZoro;
@@ -22,6 +23,8 @@ function TypingArea() {
   let [currentIndex, setCurrentIndex] = useState([0,0]) 
   let [typingContent, setTypingContent] = useState(initialTypingContent) 
   let [cellState , setCellState] = useState(initialcellStates)
+  const { Timer_rendor , isActive , setIsActive } = useTimer({seconds : "60"}) ; 
+
   const refs = useRef(typingContent.map(() => React.createRef())) 
 
   let Type = typingContent.map((word, idx) => {
@@ -43,11 +46,15 @@ function TypingArea() {
       // console.log( refs.current[i] ) ; 
       let divId = refs.current[i].current.id  ;
       console.log( getWidth(divId)) ; 
-      
+      if( !isActive && i === 0 && j === 0 ){
+        if(event.key !== typingContent[currentIndex[0]][currentIndex[1]]){
+          return ;
+        }
+      }
       if (event.key === typingContent[currentIndex[0]][currentIndex[1]]) {
         // console.log( i , j ) ; 
         // console.log(typingcontent[i].length) ; 
-
+        if( i === 0 && j === 0 ) setIsActive(true) ; 
         let newcellState = [...cellState];
         newcellState[i][j] = "letter correct" ; 
         
@@ -108,10 +115,11 @@ function TypingArea() {
 
   return (
   <div className = "TypingAreaContainer">
+    { isActive && Timer_rendor }
     <div className="TypingArea" id = "TA">
       {Type}  
     </div>
-    <button className = "startButton"> Start </button>
+    {/* <button className = "startButton"> Start </button> */}
   </div>
    
   )

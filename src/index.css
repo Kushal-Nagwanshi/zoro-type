@@ -5,6 +5,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+  --zoro-light-green1 : rgb(214, 239, 111);
+  --zoro-light-green2 :  rgb(173, 255, 47) ;
+  --zoro-dark-green : rgb(186, 226, 52) ;
+  --zoro-untyped : rgb(206, 215, 169) ;
   background-color: #242424;
 
   font-synthesis: none;

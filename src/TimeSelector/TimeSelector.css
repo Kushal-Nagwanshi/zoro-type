@@ -1,0 +1,26 @@
+
+.timeSelector{
+    display : flex ; 
+    justify-content: flex-end;
+    gap : 0.5rem ; 
+    min-width: 20rem; 
+}
+
+.timeSelectorButton{
+    font-size : 1.5rem ;
+    background : none ;
+    border : none ; 
+    font-weight : bolder ;
+    color : rgb(117, 129, 117); 
+    transition : color 300ms ;
+}
+
+.timeSelectorButton:hover{
+    color : var(--zoro-untyped) ;
+    animation: fadein 1s ;
+}
+
+.selectedTime{
+    font-weight: bolder;
+    color : var(--zoro-light-green1); 
+}

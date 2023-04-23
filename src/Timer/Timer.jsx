@@ -3,7 +3,7 @@ import './Timer.css'
 
 function useTimer(props) {
     const [seconds, setSeconds] = useState(Number(props.seconds)) ; 
-    const [isActive , setIsActive] = useState(false) ; 
+    const [isActive , setIsActive] = useState(true) ; 
 
     useEffect(() => {
       let interval = setInterval(() => 
@@ -23,7 +23,7 @@ function useTimer(props) {
     return ( 
     {isActive , 
      setIsActive : setIsActive ,
-     rendor : 
+     Timer_rendor : 
       (
        <div className="timer">
             <div className="time">

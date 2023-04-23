@@ -1,20 +1,20 @@
 h1 { 
-    color : rgb(214, 239, 111);
+    color : var(--zoro-light-green1);
   }
   
   .TypingAreaContainer{
     /* display : block ;  */
-    padding : 0rem 10rem;
+    padding : 0rem 0rem;
   }
   
   .TypingArea{
     /* display: block; */
     overflow: hidden;
-    height: 8rem;
-    margin : 10rem 0rem; 
-    padding-left: 0.5rem;   
-    min-width: 20rem; 
-    border: 0.1rem solid greenyellow;
+    height: 12rem;
+    margin : 11rem 0rem; 
+    /* padding-left: 0.5rem;    */
+    min-width: 10rem; 
+    /* border: 0.1rem solid var(--zoro-light-green2); */
     border-radius : 0.3rem ; 
   }
   
@@ -25,9 +25,9 @@ h1 {
   pre{
     margin : 0 ; 
   }
+
   .letter{
-    color :rgb(186, 226, 52) ;
-    font-size : 1.2rem ; 
+    font-size : 2rem ; 
     margin-bottom: 1rem;
   }
   
@@ -36,7 +36,7 @@ h1 {
   }
   
   .untyped{
-    color :rgb(206, 215, 169)
+    color :rgb(206, 215, 169) ;
   }
   
   .wrong{
