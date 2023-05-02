@@ -33,6 +33,7 @@ function TypingArea() {
 
     function handleKeyDown(event) {
       let i = currentIndex[0] , j = currentIndex[1] ;
+      let new_i = i , new_j = j ; 
       // if( i === typingContent.length - 1 && j === typingContent[i].length ) return ; 
       // Here run a function which changes page to tell the stats of current typing test..
 
@@ -40,11 +41,7 @@ function TypingArea() {
       // console.log( refs.current[i] ) ; 
       let divId = refs.current[i].current.id  ;
       console.log( getWidth(divId)) ; 
-      if( !isActive && i === 0 && j === 0 ){
-        if(event.key !== typingContent[currentIndex[0]][currentIndex[1]]){
-          return ;
-        }
-      }
+      
       if (event.key === typingContent[currentIndex[0]][currentIndex[1]]) {
         // console.log( i , j ) ; 
         // console.log(typingcontent[i].length) ; 
@@ -52,32 +49,33 @@ function TypingArea() {
         let newcellState = [...cellState];
         newcellState[i][j] = "letter correct" ; 
         
-        if( typingContent[i].length === j + 1 ){ i = i + 1 ; j = 0 ; }
-        else j++ ;  
-        setCurrentIndex([i,j]) ;
+        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ; }
+        else new_j++ ;  
+        setCurrentIndex([new_i,new_j]) ;
         setCellState(newcellState) ; 
         // console.log("typed correctly") ; 
       }
       else if( event.key === 'Backspace'){
         
-        if( j > 0 ) j -= 1; 
-        else if ( j == 0 && i != 0 ) {i -= 1 ;  j = typingContent[i].length - 1 ;}
+        if( j > 0 ) new_j = j - 1; 
+        else if ( j == 0 && i != 0 ) {new_i = i - 1 ;  new_j = typingContent[new_i].length - 1 ;}
      
         let newcellState = [...cellState];
-        newcellState[i][j] = "letter untyped" ;
+        newcellState[new_i][new_j] = "letter untyped" ;
 
-        setCurrentIndex([i,j]) ;
+        setCurrentIndex([new_i,new_j]) ;
         setCellState(cellState) ; 
       }
       else if( isValidKey(event.key) ){
         let newcellState = [...cellState];
         newcellState[i][j] = "letter wrong" ;
-
-        if( typingContent[i].length === j + 1 ){ i = i + 1 ; j = 0 ; }
-        else j++ ; 
+        
+        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ; }
+        else new_j++ ; 
          
-        setCurrentIndex([i,j]) ;
+        setCurrentIndex([new_i,new_j]) ;
         setCellState(cellState)  ;
+        
       }
 
       if(j == typingContent[i].length - 1 && i !== typingContent.length -1 ) {
