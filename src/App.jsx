@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import './App.css'
 import TypingArea from './TypingArea/TypingArea'
 import TimeSelector from './TimeSelector/TimeSelector.jsx'
+import Stats from './Stats/Stats.jsx' 
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     
     <TimeSelector/>
     <TypingArea/>
+    <Stats wpm= {100} accuracy = {100} correct = {100} incorrect = {0} />
   </div>
   )
 }

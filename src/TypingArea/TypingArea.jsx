@@ -13,12 +13,6 @@ let initialcellStates = initialTypingContent.map((word) => {
   return InitialWordState ;
 }) ;
 
-
-// to test the cellState behaviour when it will change
-/*
-initialcellStates[0][3] = "letter wrong" ;
-initialcellStates[0][1] = "letter typed" ; 
-*/
 function TypingArea() {
   let [currentIndex, setCurrentIndex] = useState([0,0]) 
   let [typingContent, setTypingContent] = useState(initialTypingContent) 
@@ -66,7 +60,7 @@ function TypingArea() {
       }
       else if( event.key === 'Backspace'){
         
-        if( j > 0 ) j -=1; 
+        if( j > 0 ) j -= 1; 
         else if ( j == 0 && i != 0 ) {i -= 1 ;  j = typingContent[i].length - 1 ;}
      
         let newcellState = [...cellState];
@@ -86,10 +80,10 @@ function TypingArea() {
         setCellState(cellState)  ;
       }
 
-      if(j == 0) {
+      if(j == typingContent[i].length - 1 && i !== typingContent.length -1 ) {
         // check the current line number.
         // if line number >= 3 , cut the first line.
-        let lineNumber = getLineNumber( i , getWidth("TA")); 
+        let lineNumber = getLineNumber( i + 1 , getWidth("TA")); 
         console.log(lineNumber) ; 
 
         if( lineNumber >= 3 ){
@@ -97,12 +91,12 @@ function TypingArea() {
             while( x < 2 && ni < i ){
                 widthSum += getWidth(`${ni}`) ; 
                 ni++ ; 
-                if( widthSum > widthTA) {x++ ; widthSum = 0 ; }
+                if( widthSum > widthTA) {x++ ; ni--;  widthSum = 0 ; }
             }
-            console.log( `updating content x = ${x} ni = ${ni}`);
-            setCellState( (prevState) => { console.log(prevState) ; return [...prevState].slice(ni) ;}) ; 
-            setTypingContent( (prevState) => {  console.log(prevState) ; return [...prevState].slice(ni) ;}) ; 
-            setCurrentIndex([i - ni,0]) ; 
+
+            setCellState( (prevState) => { return [...prevState].slice(ni) ;}) ; 
+            setTypingContent( (prevState) => { return [...prevState].slice(ni) ;}) ; 
+            setCurrentIndex([i - ni + 1,0]) ; 
         }
       }
 

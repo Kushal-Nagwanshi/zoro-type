@@ -226,13 +226,17 @@ export let typingContentTypingIsFun = [
 ];
 
 export function getLineNumber(idx, windowWidth) {
-  let lineNumber = 0,
+  let lineNumber = 1,
     ni = 0,
     widthSum = 0;
   while (ni <= idx) {
     widthSum += getWidth(`${ni}`);
     ni++;
-    lineNumber = 1 + Math.floor(widthSum / windowWidth);
+    if (widthSum > windowWidth) {
+      lineNumber++;
+      widthSum = 0;
+      ni--;
+    }
   }
   return lineNumber;
 }
