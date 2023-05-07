@@ -1,5 +1,5 @@
-    zorotype is a software which unables the user to get their typing speed.
-    Named after the fictional character "Roronoa Zoro" from the anime 
+    zorotype is a software which enables the user to test their typing speed.
+    Named after the fictional character "Roronoa Zoro" from the anime
     "One Piece".
     Copyright (C) 2023  Kushal Nagwanshi
 
