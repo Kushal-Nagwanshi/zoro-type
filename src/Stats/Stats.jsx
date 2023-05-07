@@ -3,7 +3,12 @@ import './Stats.css' ;
 import '../css/balloon.min.css'
 
 function Stats(props){
+    const totalCorrectWords = props.correct / 5 ; 
+    const totalLetters = props.correct + props.incorrect ; 
 
+    const wpm = props.time === 0 ? 0 : Math.floor( totalCorrectWords / props.time * 60 );
+    const accuracy = totalLetters === 0 ? 0 : Math.floor(props.correct / totalLetters * 100 ) ; 
+    
     return (
         <div id="stats">
             <div id="primary-stats">
@@ -12,7 +17,7 @@ function Stats(props){
                         wpm
                     </div>
                     <div id= "wpm-bot">
-                        {props.wpm} 
+                        {wpm} 
                     </div>
                 </div>
                 <div id="accuracy">
@@ -20,7 +25,7 @@ function Stats(props){
                         acc
                     </div>
                     <div id = "accuracy-bot">
-                        {props.accuracy} 
+                        {accuracy} 
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@
     font-weight : bolder ;
     color : rgb(117, 129, 117); 
     transition : color 300ms ;
+    user-select: none; 
 }
 
 .timeSelectorButton:hover{

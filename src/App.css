@@ -20,6 +20,7 @@ h1 {
   position: absolute;
   top: 0.7rem;
   transition: color .25s,opacity .25s;
+  user-select: none; 
 }
 
 .text {
@@ -27,4 +28,5 @@ h1 {
     margin-top: -.2em;
     position: relative;
     transition: color .25s;
+    user-select: none; 
 }

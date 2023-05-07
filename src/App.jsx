@@ -1,10 +1,30 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './App.css'
 import TypingArea from './TypingArea/TypingArea'
-import TimeSelector from './TimeSelector/TimeSelector.jsx'
 import Stats from './Stats/Stats.jsx' 
+import { TimeSelector } from './TimeSelector/TimeSelector'
 
 function App() {
+  const [page , setPage] = useState("Test") ;
+  const [correct , setCorrect] = useState(0) ; 
+  const [incorrect, setIncorrect] = useState(0) ; 
+  const [time , setTime] = useState(20) ; 
+  const [TestEnded , setTestEnded] = useState(false) ;
+
+
+  useEffect(() => {
+    console.log(time) ; 
+  }, [time])
+
+  useEffect( () => {
+    if(TestEnded){
+      console.log("Test Ended") ; 
+      setPage("Stats") ;
+    }
+  } , [TestEnded]) ; 
+  
+useEffect( () => {} , [page]) ; 
+
   return (
   <div className='body'>
     <div className="topbar">
@@ -18,9 +38,18 @@ function App() {
       </h1>
     </div>
     
-    <TimeSelector/>
-    <TypingArea/>
-    <Stats wpm= {100} accuracy = {100} correct = {100} incorrect = {0} />
+    {<TimeSelector time = {time} setTime = {setTime} />}
+    {
+    page === "Test" && 
+    <TypingArea 
+      setTestEnded = {setTestEnded} 
+      setCorrect = {setCorrect} 
+      setIncorrect = {setIncorrect}
+      time = {time}
+      setPage = {setPage} 
+    />
+    }
+    {page === "Stats" && <Stats correct = {correct} incorrect = {incorrect} time = {time} />}
   </div>
   )
 }

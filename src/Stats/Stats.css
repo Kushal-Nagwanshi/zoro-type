@@ -16,20 +16,24 @@ div#wpm{
     color:rgb(177, 212, 157);
     position: relative;
     top: 1.8rem;
+    user-select: none; 
 }
 
 #accuracy-bot , #wpm-bot , #characters-bot{
     font-size : 4rem; 
     color: rgb(214, 239, 111);
+    user-select: none; 
 }
 #characters-top{
     font-size:1.5rem;
     top : 1rem ;
+    user-select: none; 
 }
 
 #characters-bot{
     display: flex;
     font-size : 2rem; 
+    user-select: none; 
 }
 
 #incorrect::before{
@@ -80,6 +84,8 @@ div#next-test-button-container{
     color:  rgb(144 160 144);
     font-size: 2rem;
     font-weight: bold;
+    user-select: none; 
+
 }
 
 #next-test-button:hover{
