@@ -43,7 +43,7 @@ function TypingArea(props) {
     function handleKeyDown(event) {
       let i = currentIndex[0] , j = currentIndex[1] ;
       let new_i = i , new_j = j ; 
-      if( i === 0 && j === 0 ) {setIsActive(true) ; }
+      if( i === 0 && j === 0 ) {setIsActive(true) ; props.setTestStarted(true) ; }
       // Here run a function which changes page to tell the stats of current typing test..
       if( i === typingContent.length - 1 && j === typingContent[i].length ) {
         console.log("Test Ended : setting testEnded to true");
@@ -131,7 +131,6 @@ function TypingArea(props) {
     <div className="TypingArea" id = "TA">
       {Type}  
     </div>
-    {/* <button className = "startButton"> Start </button> */}
   </div>
    
   )

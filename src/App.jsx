@@ -8,8 +8,9 @@ function App() {
   const [page , setPage] = useState("Test") ;
   const [correct , setCorrect] = useState(0) ; 
   const [incorrect, setIncorrect] = useState(0) ; 
-  const [time , setTime] = useState(20) ; 
+  const [time , setTime] = useState(15) ; 
   const [TestEnded , setTestEnded] = useState(false) ;
+  const [TestStarted , setTestStarted] = useState(false) ; 
 
 
   useEffect(() => {
@@ -25,6 +26,11 @@ function App() {
   
 useEffect( () => {} , [page]) ; 
 
+  function handleNextTestButton(e){
+    e.preventDefault() ; 
+    console.log("next Test !")  ;
+
+  }
   return (
   <div className='body'>
     <div className="topbar">
@@ -38,10 +44,11 @@ useEffect( () => {} , [page]) ;
       </h1>
     </div>
     
-    {<TimeSelector time = {time} setTime = {setTime} />}
+    {page === "Test" && !TestStarted && <TimeSelector time = {time} setTime = {setTime} />}
     {
     page === "Test" && 
     <TypingArea 
+      setTestStarted = {setTestStarted}
       setTestEnded = {setTestEnded} 
       setCorrect = {setCorrect} 
       setIncorrect = {setIncorrect}
@@ -50,7 +57,15 @@ useEffect( () => {} , [page]) ;
     />
     }
     {page === "Stats" && <Stats correct = {correct} incorrect = {incorrect} time = {time} />}
+    <div id = "buttons">
+      <div id='next-test-button-container' > 
+          <button id = 'next-test-button' className = "plain-button" onClick = {handleNextTestButton}aria-label="start new test" data-balloon-pos="down">
+              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+          </button>
+      </div>
+    </div>
   </div>
+  
   )
 }
 

@@ -8,14 +8,15 @@ h1 {
   }
   
   .TypingArea{
-    /* display: block; */
+    /* display: block; */ 
     overflow: hidden;
     height: 12rem;
-    margin : 11rem 0rem; 
+    margin-top : 11rem; 
     /* padding-left: 0.5rem;    */
     min-width: 10rem; 
     /* border: 0.1rem solid var(--zoro-light-green2); */
     border-radius : 0.3rem ; 
+    
   }
   
   .word {

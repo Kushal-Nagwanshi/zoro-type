@@ -40,13 +40,7 @@ function Stats(props){
                     </div>
                 </div>
             </div>
-            <div id = "buttons">
-                <div id='next-test-button-container' aria-label="start new test" data-balloon-pos="up"> 
-                    <button id = 'next-test-button' className = "plain-button">
-                        <i className="fa fa-chevron-right" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
+           
         </div>
     )
 }
