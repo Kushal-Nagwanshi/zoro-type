@@ -245,6 +245,12 @@ export function getWidth(divName) {
   return document.getElementById(divName).offsetWidth;
 }
 
+export function isSpecialKey(key) {
+  console.log(key);
+  if (key.length > 1) return true;
+  return false;
+}
+
 export function isValidKey(key) {
   if (key.length > 1) return false;
   // console.log(key) ;
@@ -291,6 +297,17 @@ export function isValidKey(key) {
     if (key === valid_characters[i]) return true;
   }
   return false;
+}
+
+export function getRandomWords(count) {
+  let res = Array();
+  for (let i = 0; i < count; i++) {
+    let randomWord =
+      Top100Words[Math.floor(Math.random() * Top100Words.length)];
+    randomWord += " ";
+    res.push(randomWord);
+  }
+  return res;
 }
 
 export default typingContentZoro;

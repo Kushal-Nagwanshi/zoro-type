@@ -19,6 +19,9 @@ h1 {
     
   }
   
+  .TypingArea:focus {
+    outline: none;
+ }
   .word {
     display : inline-flex ; 
     user-select: none; 

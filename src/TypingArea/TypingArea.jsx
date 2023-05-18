@@ -1,35 +1,81 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './TypingArea.css'
-import {getLineNumber , typingContentZoro , typingContentTypingIsFun, getWidth , isValidKey} from '../util' 
+import {getLineNumber , typingContentZoro , typingContentTypingIsFun, getWidth , isValidKey , isSpecialKey , getRandomWords} from '../util' 
 import Timer from '../Timer/Timer';
-
-let initialTypingContent = typingContentTypingIsFun ; 
-initialTypingContent = typingContentZoro;
-
-let initialcellStates = initialTypingContent.map((word) => {
-  let InitialWordState = [] ; 
-  for(let i = 0 ; i < word.length ; i ++){
-    InitialWordState.push("letter untyped") ; 
-  }  
-  return InitialWordState ;
-}) ;
 
 function TypingArea(props) {
   let [currentIndex, setCurrentIndex] = useState([0,0]) 
-  let [typingContent, setTypingContent] = useState(initialTypingContent) 
-  let [cellState , setCellState] = useState(initialcellStates)
+  let [typingContent, setTypingContent] = useState(["R"]) 
+  let [cellState , setCellState] = useState(["letter untyped"])
+  let [restartTest , setRestartTest] = [props.restartTest , props.setRestartTest] 
   const [isActive , setIsActive] = useState(false) ; 
   const [isEnded , setIsEnded] = useState(false) ; 
-
-  const refs = useRef(typingContent.map(() => React.createRef())) 
+  const refs = useRef([]) ;
+  const typingAreaRef = useRef();
 
   let Type = typingContent.map((word, idx) => {
     let wordcontainer = [] ; 
     for(let i = 0 ; i < word.length ; i ++){
       wordcontainer.push( <div className = {i == currentIndex[1] && idx == currentIndex[0] ? cellState[idx][i] + " cursor" : cellState[idx][i] } key = {i}><pre>{word[i]}</pre></div>)
     }
-    return (<div className = "word" key = {`key${idx}`} ref = {refs.current[idx]} id = {`${idx}`} >{wordcontainer}</div>) 
-  })
+    return (<div className = "word" key = {`key${idx}`} ref={el => refs.current[idx] = el} id = {`${idx}`} >{wordcontainer}</div>) 
+  });
+
+  useEffect( () => {
+      typingAreaRef.current.focus() ; 
+  }) ;
+
+  useEffect( () => {
+    let wordList = getRandomWords(100) ;
+    console.log(wordList) ; 
+
+    let initialTypingContent = typingContentTypingIsFun ; 
+    initialTypingContent = typingContentZoro;
+    initialTypingContent = wordList ; 
+    let initialcellStates = initialTypingContent.map((word) => {
+      let InitialWordState = [] ; 
+      for(let i = 0 ; i < word.length ; i ++){
+        InitialWordState.push("letter untyped") ; 
+      }  
+      return InitialWordState ;
+    }) ;
+
+    setTypingContent(initialTypingContent) ; 
+    setCellState(initialcellStates) ;
+
+    setCurrentIndex([0,0]) ;
+  } , [])
+
+  useEffect( () => {
+    if(restartTest){   
+      if (document.activeElement) {
+        document.activeElement.blur();
+        document.body.focus() ; 
+    }
+      console.log("restarting test...") ;
+      let initialTypingContent = typingContentTypingIsFun ; 
+    initialTypingContent = typingContentZoro;
+
+    let initialcellStates = initialTypingContent.map((word) => {
+      let InitialWordState = [] ; 
+      for(let i = 0 ; i < word.length ; i ++){
+        InitialWordState.push("letter untyped") ; 
+      }  
+      return InitialWordState ;
+    }) ;
+      console.log(initialTypingContent);
+      console.log(initialcellStates);
+      
+      setCurrentIndex([0,0]) 
+      setTypingContent(initialTypingContent) 
+      setCellState(initialcellStates)
+      setIsActive(false)
+      setIsEnded(false)
+      setRestartTest(false)
+    }
+    
+
+  } ,[ restartTest , typingContent , cellState , currentIndex]) ; 
 
  useEffect( () => {
   if(isEnded) props.setTestEnded(true); 
@@ -38,12 +84,18 @@ function TypingArea(props) {
  useEffect( () => {
   console.log(props.time) ; 
  }, [props.time]) ; 
+
  useEffect(() => {
 
     function handleKeyDown(event) {
       let i = currentIndex[0] , j = currentIndex[1] ;
       let new_i = i , new_j = j ; 
-      if( i === 0 && j === 0 ) {setIsActive(true) ; props.setTestStarted(true) ; }
+
+      if( i === 0 && j === 0 ) { 
+        if(isSpecialKey(event.key)) return ; 
+          setIsActive(true) ;
+          props.setTestStarted(true) ; 
+      }
       // Here run a function which changes page to tell the stats of current typing test..
       if( i === typingContent.length - 1 && j === typingContent[i].length ) {
         console.log("Test Ended : setting testEnded to true");
@@ -52,7 +104,7 @@ function TypingArea(props) {
 
       // console.log( i , j , event.key) ;
       // console.log( refs.current[i] ) ; 
-      let divId = refs.current[i].current.id  ;
+      let divId = refs.current[i].id  ;
       console.log( getWidth(divId)) ; 
 
       //correctly typed
@@ -124,11 +176,12 @@ function TypingArea(props) {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentIndex , cellState , typingContent]);
-
+  
+ 
   return (
   <div className = "TypingAreaContainer">
     { isActive && <Timer seconds = {props.time} setIsEnded = {setIsEnded} isActive = {isActive} setIsActive = {setIsActive}/> }
-    <div className="TypingArea" id = "TA">
+    <div className="TypingArea"  tabIndex={-1}  ref ={typingAreaRef} id = "TA">
       {Type}  
     </div>
   </div>

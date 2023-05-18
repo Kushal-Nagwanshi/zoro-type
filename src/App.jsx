@@ -11,6 +11,7 @@ function App() {
   const [time , setTime] = useState(15) ; 
   const [TestEnded , setTestEnded] = useState(false) ;
   const [TestStarted , setTestStarted] = useState(false) ; 
+  const [restartTest , setRestartTest] = useState(false) ;
 
 
   useEffect(() => {
@@ -24,12 +25,16 @@ function App() {
     }
   } , [TestEnded]) ; 
   
-useEffect( () => {} , [page]) ; 
+  useEffect( () => {} , [page]) ; 
 
   function handleNextTestButton(e){
-    e.preventDefault() ; 
     console.log("next Test !")  ;
-
+    setPage("Test") ;
+    setRestartTest(true) ; 
+    setCorrect(0) ; 
+    setIncorrect(0) ; 
+    setTestEnded(false) ;
+    setTestStarted(false) ; 
   }
   return (
   <div className='body'>
@@ -54,13 +59,15 @@ useEffect( () => {} , [page]) ;
       setIncorrect = {setIncorrect}
       time = {time}
       setPage = {setPage} 
+      restartTest = {restartTest}
+      setRestartTest = {setRestartTest}
     />
     }
     {page === "Stats" && <Stats correct = {correct} incorrect = {incorrect} time = {time} />}
-    <div id = "buttons">
+    <div id = "buttons" >
       <div id='next-test-button-container' > 
-          <button id = 'next-test-button' className = "plain-button" onClick = {handleNextTestButton}aria-label="start new test" data-balloon-pos="down">
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+          <button type = "button" id = 'next-test-button' tabIndex = {0} className = "plain-button" onClick = {handleNextTestButton} aria-label="start new test" data-balloon-pos="down">
+              <i className="fa fa-chevron-right"  aria-hidden="true"></i>
           </button>
       </div>
     </div>
