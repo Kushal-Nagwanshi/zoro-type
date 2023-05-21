@@ -3,6 +3,7 @@ import './App.css'
 import TypingArea from './components/TypingArea/TypingArea'
 import Stats from './components/Stats/Stats.jsx' 
 import { TimeSelector } from './components/TimeSelector/TimeSelector'
+import Options from './components/Options/Options'
 
 function App() {
   const [page , setPage] = useState("Test") ;
@@ -12,12 +13,12 @@ function App() {
   const [TestEnded , setTestEnded] = useState(false) ;
   const [TestStarted , setTestStarted] = useState(false) ; 
   const [restartTest , setRestartTest] = useState(false) ;
-
+  const [testType , setTestType] = useState("Random") ; 
 
   useEffect(() => {
     console.log(time) ; 
   }, [time])
-
+  
   useEffect( () => {
     if(TestEnded){
       console.log("Test Ended") ; 
@@ -49,10 +50,11 @@ function App() {
       </h1>
     </div>
     
-    {page === "Test" && !TestStarted && <TimeSelector time = {time} setTime = {setTime} />}
+    {page === "Test" && !TestStarted && <Options time = {time} setTime = {setTime} testType = {testType} setTestType = {setTestType}/>}
     {
     page === "Test" && 
     <TypingArea 
+      testType = {testType} setTestType = {setTestType}
       setTestStarted = {setTestStarted}
       setTestEnded = {setTestEnded} 
       setCorrect = {setCorrect} 

@@ -1,0 +1,35 @@
+#Options{
+    display : flex ;
+    justify-content: center;
+    /* border : #726565 solid 0.15rem; */
+    /* border-radius : 0.3rem; */
+    /* padding : 1rem 0rem ; */
+    /* background-color: rgb(14 16 14); */
+}
+
+#TestTypeSelector{
+    display : flex ; 
+    justify-content: left;
+    border-right :rgb(66, 72, 66) solid 0.25rem;
+    border-radius : 0.2rem;
+}
+
+.typeSelectorButton{
+    font-size : 1.5rem ;
+    background : none ;
+    border : none ; 
+    font-weight : bolder ;
+    color : rgb(117, 129, 117); 
+    transition : color 300ms ;
+    user-select: none; 
+}
+
+.typeSelectorButton:hover{
+    color : var(--zoro-untyped) ;
+    animation: fadein 1s ;
+}
+
+.selectedType{
+    font-weight: bolder;
+    color : var(--zoro-light-green1); 
+}

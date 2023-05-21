@@ -21,30 +21,52 @@ function TypingArea(props) {
     return (<div className = "word" key = {`key${idx}`} ref={el => refs.current[idx] = el} id = {`${idx}`} >{wordcontainer}</div>) 
   });
 
+  function setContent(){
+    if( props.testType == "Random"){
+      let wordList = getRandomWords(100) ;
+      console.log(wordList) ; 
+  
+      let initialTypingContent = typingContentTypingIsFun ; 
+      initialTypingContent = typingContentZoro;
+      initialTypingContent = wordList ; 
+      let initialcellStates = initialTypingContent.map((word) => {
+        let InitialWordState = [] ; 
+        for(let i = 0 ; i < word.length ; i ++){
+          InitialWordState.push("letter untyped") ; 
+        }  
+        return InitialWordState ;
+      }) ;
+  
+      setTypingContent(initialTypingContent) ; 
+      setCellState(initialcellStates) ;
+      setCurrentIndex([0,0]) 
+    }
+    else if(props.testType === "Zoro"){
+      let initialTypingContent = typingContentTypingIsFun ; 
+      initialTypingContent = typingContentZoro;
+
+      let initialcellStates = initialTypingContent.map((word) => {
+        let InitialWordState = [] ; 
+        for(let i = 0 ; i < word.length ; i ++){
+          InitialWordState.push("letter untyped") ; 
+        }  
+        return InitialWordState ;
+      }) ;
+      console.log(initialTypingContent);
+      console.log(initialcellStates);
+      setTypingContent(initialTypingContent) 
+      setCellState(initialcellStates)
+      setCurrentIndex([0,0]) 
+    }
+  }
+
   useEffect( () => {
       typingAreaRef.current.focus() ; 
   }) ;
 
   useEffect( () => {
-    let wordList = getRandomWords(100) ;
-    console.log(wordList) ; 
-
-    let initialTypingContent = typingContentTypingIsFun ; 
-    initialTypingContent = typingContentZoro;
-    initialTypingContent = wordList ; 
-    let initialcellStates = initialTypingContent.map((word) => {
-      let InitialWordState = [] ; 
-      for(let i = 0 ; i < word.length ; i ++){
-        InitialWordState.push("letter untyped") ; 
-      }  
-      return InitialWordState ;
-    }) ;
-
-    setTypingContent(initialTypingContent) ; 
-    setCellState(initialcellStates) ;
-
-    setCurrentIndex([0,0]) ;
-  } , [])
+    setContent() ; 
+  } , [props.testType])
 
   useEffect( () => {
     if(restartTest){   
@@ -53,22 +75,7 @@ function TypingArea(props) {
         document.body.focus() ; 
     }
       console.log("restarting test...") ;
-      let initialTypingContent = typingContentTypingIsFun ; 
-    initialTypingContent = typingContentZoro;
-
-    let initialcellStates = initialTypingContent.map((word) => {
-      let InitialWordState = [] ; 
-      for(let i = 0 ; i < word.length ; i ++){
-        InitialWordState.push("letter untyped") ; 
-      }  
-      return InitialWordState ;
-    }) ;
-      console.log(initialTypingContent);
-      console.log(initialcellStates);
-      
-      setCurrentIndex([0,0]) 
-      setTypingContent(initialTypingContent) 
-      setCellState(initialcellStates)
+      setContent() 
       setIsActive(false)
       setIsEnded(false)
       setRestartTest(false)
