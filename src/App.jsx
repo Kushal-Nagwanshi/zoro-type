@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './App.css'
-import TypingArea from './TypingArea/TypingArea'
-import Stats from './Stats/Stats.jsx' 
-import { TimeSelector } from './TimeSelector/TimeSelector'
+import TypingArea from './components/TypingArea/TypingArea'
+import Stats from './components/Stats/Stats.jsx' 
+import { TimeSelector } from './components/TimeSelector/TimeSelector'
 
 function App() {
   const [page , setPage] = useState("Test") ;
