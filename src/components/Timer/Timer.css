@@ -1,0 +1,13 @@
+.timer{
+    display : flex ; 
+    justify-content: center;
+    align-items : center ;
+}
+.time{
+    position: absolute ; 
+    margin-top : 0rem ;
+    top : 5rem ; 
+    font-size : clamp(4rem , 30vw , 9rem) ;  
+    color :rgb(123 135 123);
+    user-select: none; 
+}

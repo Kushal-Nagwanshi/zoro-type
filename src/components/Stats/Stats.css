@@ -1,0 +1,46 @@
+div#stats{
+    font-size : 2rem ;
+}
+
+div#primary-stats , div#secondary-stats{
+    display: flex;
+    justify-content: center;
+}
+
+div#wpm{
+    margin-right:1rem ;
+}
+
+#accuracy-top , #wpm-top , #characters-top{
+    font-size:2rem;
+    color:rgb(177, 212, 157);
+    position: relative;
+    top: 1.8rem;
+    user-select: none; 
+}
+
+#accuracy-bot , #wpm-bot , #characters-bot{
+    font-size : 4rem; 
+    color: rgb(214, 239, 111);
+    user-select: none; 
+}
+#characters-top{
+    font-size:1.5rem;
+    top : 1rem ;
+    user-select: none; 
+}
+
+#characters-bot{
+    display: flex;
+    font-size : 2rem; 
+    user-select: none; 
+}
+
+#incorrect::before{
+    content:"/" ;
+}
+
+#accuracy-bot::after{
+    content: "%"; 
+}
+
