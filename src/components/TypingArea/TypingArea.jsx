@@ -42,9 +42,7 @@ function TypingArea(props) {
       setCurrentIndex([0,0]) 
     }
     else if(props.testType === "Zoro"){
-      let initialTypingContent = typingContentTypingIsFun ; 
-      initialTypingContent = typingContentZoro;
-
+      let initialTypingContent = typingContentZoro;
       let initialcellStates = initialTypingContent.map((word) => {
         let InitialWordState = [] ; 
         for(let i = 0 ; i < word.length ; i ++){

@@ -16,7 +16,7 @@ h1 {
     min-width: 10rem; 
     /* border: 0.1rem solid var(--zoro-light-green2); */
     border-radius : 0.3rem ; 
-    
+    padding-right : 0.15rem ; /* to incorporate the cursor's width*/
   }
   
   .TypingArea:focus {
