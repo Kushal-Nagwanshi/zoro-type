@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './TypingArea.css'
-import {getLineNumber , typingContentZoro , typingContentTypingIsFun, getWidth , isValidKey , isSpecialKey , getRandomWords} from '../../util' 
+import {getLineNumber , typingContentZoro , getWidth , isValidKey , isSpecialKey , getRandomWords} from '../../util' 
 import Timer from '../Timer/Timer';
 
 function TypingArea(props) {
@@ -20,15 +20,13 @@ function TypingArea(props) {
     }
     return (<div className = "word" key = {`key${idx}`} ref={el => refs.current[idx] = el} id = {`${idx}`} >{wordcontainer}</div>) 
   });
-
+  
   function setContent(){
     if( props.testType == "Random"){
-      let wordList = getRandomWords(100) ;
+      let wordList = getRandomWords(60) ;
       console.log(wordList) ; 
   
-      let initialTypingContent = typingContentTypingIsFun ; 
-      initialTypingContent = typingContentZoro;
-      initialTypingContent = wordList ; 
+      let initialTypingContent = wordList ; 
       let initialcellStates = initialTypingContent.map((word) => {
         let InitialWordState = [] ; 
         for(let i = 0 ; i < word.length ; i ++){
@@ -56,6 +54,28 @@ function TypingArea(props) {
       setCellState(initialcellStates)
       setCurrentIndex([0,0]) 
     }
+  }
+
+  function addWord(){
+    let word = getRandomWords(1)[0] ;
+    setTypingContent( (prevContent) => {
+      let newContent = [...prevContent];
+      newContent.push(word) ; 
+      // console.log(`pushed ${word}`) ;
+      return newContent;
+    })
+    setCellState( (prevCellState) => {
+      let newCellState = [...prevCellState];
+      let newWordState = [] ;
+      // console.log(word, "is " , word.length,"long");
+      for(let i = 0 ; i < word.length ; i++){
+        newWordState.push("letter untyped") ; 
+      }
+      newCellState.push(newWordState);
+      // console.log(newCellState);
+      return newCellState ;
+    })
+
   }
 
   useEffect( () => {
@@ -120,7 +140,7 @@ function TypingArea(props) {
         let newcellState = [...cellState];
         newcellState[i][j] = "letter correct" ; 
         
-        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ; }
+        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ;}
         else new_j++ ;  
         setCurrentIndex([new_i,new_j]) ;
         setCellState(newcellState) ; 
@@ -147,7 +167,7 @@ function TypingArea(props) {
         let newcellState = [...cellState];
         newcellState[i][j] = "letter wrong" ;
         
-        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ; }
+        if( typingContent[i].length === j + 1 ){ new_i = i + 1 ; new_j = 0 ;}
         else new_j++ ; 
          
         setCurrentIndex([new_i,new_j]) ;
@@ -174,7 +194,8 @@ function TypingArea(props) {
             setCurrentIndex([i - ni + 1,0]) ; 
         }
       }
-     
+      if( props.testType === "Random" && j === typingContent[i].length - 1 && event.key != "Backspace"){ addWord() ; }
+
     }
     window.addEventListener('keydown', handleKeyDown);
     return () => {
