@@ -2,21 +2,33 @@ import React, { useEffect, useState, useRef } from 'react'
 import './App.css'
 import TypingArea from './components/TypingArea/TypingArea'
 import Stats from './components/Stats/Stats.jsx' 
-import { TimeSelector } from './components/TimeSelector/TimeSelector'
 import Options from './components/Options/Options'
 
 function App() {
+  let storedTime = localStorage.getItem("time");
+  if( storedTime === '0') storedTime = 15 ; 
+  let storedTestType = localStorage.getItem("testType") ; 
+  if( storedTestType === 'null') storedTestType = "Random" ;
+  
   const [page , setPage] = useState("Test") ;
   const [correct , setCorrect] = useState(0) ; 
   const [incorrect, setIncorrect] = useState(0) ; 
-  const [time , setTime] = useState(15) ; 
+  const [time , setTime] = useState(Number(storedTime)) ; 
   const [TestEnded , setTestEnded] = useState(false) ;
   const [TestStarted , setTestStarted] = useState(false) ; 
   const [restartTest , setRestartTest] = useState(false) ;
-  const [testType , setTestType] = useState("Random") ; 
+  const [testType , setTestType] = useState(storedTestType) ; 
+
+  useEffect(() =>{
+    localStorage.setItem("time" , time) ; 
+  },[time])
+
+  useEffect(() =>{
+    localStorage.setItem("testType" , testType) ; 
+  },[testType])
 
   useEffect(() => {
-    console.log(time) ; 
+    console.log(`time got changed to ${time}`) ; 
   }, [time])
   
   useEffect( () => {
