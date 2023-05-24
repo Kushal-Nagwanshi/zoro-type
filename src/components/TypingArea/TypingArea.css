@@ -37,7 +37,7 @@ h1 {
   }
   
   .correct{
-    color :rgb(186, 226, 52) ; 
+    color :var(--zoro-dark-green) ; 
   }
   
   .untyped{

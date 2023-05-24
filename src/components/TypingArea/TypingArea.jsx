@@ -24,7 +24,7 @@ function TypingArea(props) {
   function setContent(){
     if( props.testType == "Random"){
       let wordList = getRandomWords(60) ;
-      console.log(wordList) ; 
+      // console.log(wordList) ; 
   
       let initialTypingContent = wordList ; 
       let initialcellStates = initialTypingContent.map((word) => {
@@ -48,8 +48,8 @@ function TypingArea(props) {
         }  
         return InitialWordState ;
       }) ;
-      console.log(initialTypingContent);
-      console.log(initialcellStates);
+      // console.log(initialTypingContent);
+      // console.log(initialcellStates);
       setTypingContent(initialTypingContent) 
       setCellState(initialcellStates)
       setCurrentIndex([0,0]) 
@@ -92,7 +92,7 @@ function TypingArea(props) {
         document.activeElement.blur();
         document.body.focus() ; 
     }
-      console.log("restarting test...") ;
+      // console.log("restarting test...") ;
       setContent() 
       setIsActive(false)
       setIsEnded(false)
@@ -107,7 +107,7 @@ function TypingArea(props) {
  } , [isEnded]) ;
   
  useEffect( () => {
-  console.log(props.time) ; 
+  // console.log(props.time) ; 
  }, [props.time]) ; 
 
  useEffect(() => {
@@ -178,11 +178,15 @@ function TypingArea(props) {
       if(j == typingContent[i].length - 1 && i !== typingContent.length -1 ) {
         // check the current line number.
         // if line number >= 3 , cut the first line.
-        let lineNumber = getLineNumber( i + 1 , getWidth("TA")); 
-        console.log(lineNumber) ; 
+        // console.log("TA" , getWidth("TA")) ;
+        // console.log("TAC" ,getWidth("TAC"));
+        // THIS 2.4 COMES FROM 0.15 * 16 ( ROOT FONT SIZE )
+        // THIS HAS TO BE DONE  DUE TO THE 0.15 REM PADDING THAT WAS ADDED.
+        let lineNumber = getLineNumber( i + 1 , getWidth("TA") - 2.4); 
+        // console.log(lineNumber) ; 
 
         if( lineNumber >= 3 ){
-            let x = 1 , ni = 0 , widthSum = 0 , widthTA = getWidth("TA") ;  
+            let x = 1 , ni = 0 , widthSum = 0 , widthTA = getWidth("TA") - 2.4;  
             while( x < 2 && ni < i ){
                 widthSum += getWidth(`${ni}`) ; 
                 ni++ ; 
@@ -205,7 +209,7 @@ function TypingArea(props) {
   
  
   return (
-  <div className = "TypingAreaContainer">
+  <div className = "TypingAreaContainer" id = "TAC">
     { isActive && <Timer seconds = {props.time} setIsEnded = {setIsEnded} isActive = {isActive} setIsActive = {setIsActive}/> }
     <div className="TypingArea"  tabIndex={-1}  ref ={typingAreaRef} id = "TA">
       {Type}  
