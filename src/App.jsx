@@ -6,10 +6,13 @@ import Options from './components/Options/Options'
 
 function App() {
   let storedTime = localStorage.getItem("time");
-  if( storedTime === '0') storedTime = 15 ; 
+  if( storedTime === '0' || storedTime === null) storedTime = 15 ; 
   let storedTestType = localStorage.getItem("testType") ; 
-  if( storedTestType === 'null') storedTestType = "Random" ;
-  
+  if( storedTestType === 'null' || storedTestType === null) storedTestType = "Random" ;
+  console.log("storedTime ") ;
+  console.log(storedTime);
+  console.log("storedTestType") ;
+  console.log(storedTestType) ;
   const [page , setPage] = useState("Test") ;
   const [correct , setCorrect] = useState(0) ; 
   const [incorrect, setIncorrect] = useState(0) ; 
