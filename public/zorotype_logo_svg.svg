@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#242424" height="450" id="background" rx="83" ry="83" stroke="#000000" width="595" x="23.6" y="17.1"/>
+  <text fill="#d6ef6f" font-family="Times" font-size="24" id="text" stroke="#000000" stroke-width="0" text-anchor="middle" transform="matrix(1 0 0 1 0 0) matrix(22.1022 0 0 19.6623 -7963.78 -1476.56)" x="374.27" xml:space="preserve" y="93.5">zt</text>
+  <rect fill="#242424" height="0" id="svg_6" stroke="#000000" width="0" x="179.1" y="61.1"/>
+ </g>
+</svg>
