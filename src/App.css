@@ -90,3 +90,8 @@ div#next-test-button-container{
   color :rgb(12, 13, 13);
   background-color: #e1dada;
 }
+
+.invisible{
+  opacity: 0!important;
+  pointer-events: none!important;
+}

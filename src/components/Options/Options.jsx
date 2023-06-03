@@ -8,8 +8,8 @@ export default function Options(props) {
     }
     
     return (
-        <div id = "Options">
-            <div id = "TestTypeSelector">
+        <div id = "Options" className = {props.isInvisible ? "invisible" : ""} >
+            <div  id = "TestTypeSelector" >
                 <button className = {props.testType === "Random" ? "typeSelectorButton selectedType" : "typeSelectorButton"} value = 'Random' onClick = {(e) => handleClick(e)} >Random</button>
                 <button className = {props.testType === "Zoro" ? "typeSelectorButton selectedType" : "typeSelectorButton"} value = 'Zoro' onClick = {(e) => handleClick(e)} >Zoro</button>
             </div>

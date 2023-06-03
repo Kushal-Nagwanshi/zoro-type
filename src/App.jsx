@@ -65,7 +65,7 @@ function App() {
       </h1>
     </div>
     
-    {page === "Test" && !TestStarted && <Options time = {time} setTime = {setTime} testType = {testType} setTestType = {setTestType}/>}
+    {page === "Test" && <Options isInvisible = { TestStarted ? true : false} time = {time} setTime = {setTime} testType = {testType} setTestType = {setTestType}/>}
     {
     page === "Test" && 
     <TypingArea 

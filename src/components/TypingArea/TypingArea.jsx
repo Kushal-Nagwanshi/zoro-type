@@ -198,7 +198,7 @@ function TypingArea(props) {
             setCurrentIndex([i - ni + 1,0]) ; 
         }
       }
-      if( props.testType === "Random" && j === typingContent[i].length - 1 && event.key != "Backspace"){ addWord() ; }
+      if( props.testType === "Random" && j === typingContent[i].length - 1 && event.key != "Backspace" && event.key != "Enter"){ addWord() ; }
 
     }
     window.addEventListener('keydown', handleKeyDown);
