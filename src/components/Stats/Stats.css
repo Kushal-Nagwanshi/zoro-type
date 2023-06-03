@@ -13,7 +13,7 @@ div#wpm{
 
 #accuracy-top , #wpm-top , #characters-top{
     font-size:2rem;
-    color:rgb(177, 212, 157);
+    color:var(--zoro-top-stats) ; 
     position: relative;
     top: 1.8rem;
     user-select: none; 
@@ -21,7 +21,7 @@ div#wpm{
 
 #accuracy-bot , #wpm-bot , #characters-bot{
     font-size : 4rem; 
-    color: rgb(214, 239, 111);
+    color: var(--zoro-primary) ; 
     user-select: none; 
 }
 #characters-top{

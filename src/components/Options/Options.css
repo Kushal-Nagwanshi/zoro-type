@@ -1,10 +1,8 @@
 #Options{
     display : flex ;
     justify-content: center;
-    /* border : #726565 solid 0.15rem; */
-    /* border-radius : 0.3rem; */
-    /* padding : 1rem 0rem ; */
-    /* background-color: rgb(14 16 14); */
+    font-size : 1.2rem ;
+    font-weight : bold ; 
 }
 
 #TestTypeSelector{
@@ -15,10 +13,10 @@
 }
 
 .typeSelectorButton{
-    font-size : 1.5rem ;
+    font-size : inherit ;
     background : none ;
     border : none ; 
-    font-weight : bolder ;
+    font-weight : inherit;
     color : rgb(117, 129, 117); 
     transition : color 300ms ;
     user-select: none; 
@@ -30,6 +28,6 @@
 }
 
 .selectedType{
-    font-weight: bolder;
-    color : var(--zoro-light-green1); 
+    font-weight: inherit;
+    color : var(--zoro-primary); 
 }

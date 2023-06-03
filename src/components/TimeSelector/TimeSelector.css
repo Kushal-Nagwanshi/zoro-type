@@ -6,10 +6,10 @@
 }
 
 .timeSelectorButton{
-    font-size : 1.5rem ;
+    font-size : inherit ;
     background : none ;
     border : none ; 
-    font-weight : bolder ;
+    font-weight : inherit ; 
     color : rgb(117, 129, 117); 
     transition : color 300ms ;
     user-select: none; 
@@ -21,6 +21,6 @@
 }
 
 .selectedTime{
-    font-weight: bolder;
-    color : var(--zoro-light-green1); 
+    font-weight: inherit;
+    color : var(--zoro-primary); 
 }

@@ -1,5 +1,5 @@
 h1 { 
-  color : rgb(214, 239, 111);
+  color : var(--zoro-primary);
 }
 
 .body{
@@ -14,7 +14,7 @@ h1 {
 
 .text .top {
   position: absolute;
-  color: var(--zoro-light-green1);
+  color: var(--zoro-primary);
   font-size: 0.8rem;
   left: 2.5rem;
   line-height: 0.9rem;
