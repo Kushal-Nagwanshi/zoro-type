@@ -1,18 +1,18 @@
 
 .timeSelector{
-    display : flex ; 
+    display : flex ;
     justify-content: flex-end;
-    gap : 0.5rem ; 
+    gap : 0.5rem ;
 }
 
 .timeSelectorButton{
     font-size : inherit ;
     background : none ;
-    border : none ; 
-    font-weight : inherit ; 
-    color : rgb(117, 129, 117); 
+    border : none ;
+    font-weight : inherit ;
+    color : hsl(120,5%,48%);
     transition : color 300ms ;
-    user-select: none; 
+    user-select: none;
 }
 
 .timeSelectorButton:hover{
@@ -22,5 +22,5 @@
 
 .selectedTime{
     font-weight: inherit;
-    color : var(--zoro-primary); 
+    color : var(--zoro-primary);
 }

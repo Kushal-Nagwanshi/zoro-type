@@ -2,53 +2,53 @@
     /* display : block ;  */
     padding : 0rem 0rem;
   }
-  
+
   .TypingArea{
-    /* display: block; */ 
+    /* display: block; */
     overflow: hidden;
     height: 12rem;
-    margin-top : 11rem; 
+    margin-top : 11rem;
     /* padding-left: 0.5rem;    */
-    min-width: 10rem; 
-    /* border: 0.1rem solid var(--zoro-light-green2); */
-    border-radius : 0.3rem ; 
+    min-width: 10rem;
+    border-radius : 0.3rem ;
     padding-right : 0.15rem ; /* to incorporate the cursor's width*/
   }
-  
+
   .TypingArea:focus {
     outline: none;
  }
   .word {
-    display : inline-flex ; 
-    user-select: none; 
+    display : inline-flex ;
+    user-select: none;
   }
-  
+
   pre{
-    margin : 0 ; 
+    margin : 0 ;
+    font-family:Consolas;
   }
 
   .letter{
-    font-size : 2rem ; 
+    font-size : 2rem ;
     margin-bottom: 1rem;
   }
-  
+
   .correct{
-    color :var(--zoro-correct) ; 
+    color :var(--zoro-correct) ;
   }
-  
+
   .untyped{
     color :var(--zoro-untyped);
   }
-  
+
   .wrong{
-    color: var(--zoro-wrong) ; 
+    color: var(--zoro-wrong) ;
   }
-  
+
   .cursor{
     border-left: 0.15rem solid white;
     animation: blinking 1s infinite;
   }
-  
+
   /*cursor animation*/
   @keyframes blinking {
     0% {border-left-color: transparent}

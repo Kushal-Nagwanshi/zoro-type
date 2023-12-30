@@ -1,15 +1,15 @@
-h1 { 
+h1 {
   color : var(--zoro-primary);
 }
 
 .body{
   /* display : block ;  */
-  padding : 0 0 0 0 ; 
-  padding: 0 clamp(1rem, 10%, 10rem); 
+  padding : 0 0 0 0 ;
+  padding: 0 clamp(1rem, 10%, 10rem);
 }
 
 .topbar{
-  margin-top : 2rem ; 
+  margin-top : 2rem ;
 }
 
 .text .top {
@@ -18,10 +18,10 @@ h1 {
   font-size: 0.8rem;
   left: 2.5rem;
   line-height: 0.9rem;
- 
+
   top: 0.7rem;
   transition: color .25s,opacity .25s;
-  user-select: none; 
+  user-select: none;
 
   font-size: 0.27em;
   left: 3em;
@@ -34,7 +34,7 @@ h1 {
     margin-top: -.2em;
     position: relative;
     transition: color .25s;
-    user-select: none; 
+    user-select: none;
 }
 
 
@@ -64,7 +64,7 @@ h1 {
 
 div#next-test-button-container{
   display: flex;
-  margin-top : 1rem; 
+  margin-top : 1rem;
   align-content: center;
   justify-content: center;
 }
@@ -73,12 +73,12 @@ div#next-test-button-container{
   width: 5rem;
   height: 3rem;
   border-radius: 0.5rem;
-  padding : 0 0 ; 
+  padding : 0 0 ;
 
-  color:  rgb(144 160 144);
+  color: hsl(120,8%,60%);
   font-size: 2rem;
   font-weight: bold;
-  user-select: none; 
+  user-select: none;
 }
 
 #next-test-button:hover {
@@ -87,8 +87,8 @@ div#next-test-button-container{
 }
 
 #next-test-button:focus{
-  color :rgb(12, 13, 13);
-  background-color: #e1dada;
+  color : hsl(180, 4%, 5%);
+  background-color: hsl(0,10.45%,86.86%);
 }
 
 .invisible{

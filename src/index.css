@@ -4,15 +4,14 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: hsla(0,0%,100%,87%);
 
-  --zoro-primary : rgb(214, 239, 111);
-  --zoro-correct : rgb(186, 226, 52) ;
-  --zoro-untyped : rgb(206, 215, 169) ;
-  --zoro-wrong : rgb(226, 78, 78) ;
-  --zoro-top-stats : rgb(177, 212, 157);
-
-  background-color: #242424;
+  background-color:  hsl(0,0%,14.12%);
+  --zoro-primary:    hsl(71,80%,69%),
+  --zoro-correct:    hsl(71,80%,60%),
+  --zoro-wrong:      hsl(0,72%,60%),
+  --zoro-untyped:    hsl(71,40%,75%),
+  --zoro-top-stats : hsl(98, 39%, 72%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
