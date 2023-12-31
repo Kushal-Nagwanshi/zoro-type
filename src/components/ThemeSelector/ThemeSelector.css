@@ -1,0 +1,29 @@
+#ThemeSelector{
+    margin-top : 2rem;
+    font-weight: bold;
+    background-color: hsl(0, 0%, 22.35%);
+    justify-content: center;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.ThemeSelectorButton{
+    font-size : inherit ;
+    background : none ;
+    border : none ;
+    font-weight : inherit;
+    opacity: 0.8;
+    color : hsl(120, 4.88%, 48.24%);
+    transition : color 300ms ;
+    user-select: none;
+}
+
+.ThemeSelectorButton:hover{
+    color : var(--zoro-untyped) ;
+    animation: fadein 1s ;
+}
+
+.selectedTheme{
+    font-weight: inherit;
+    color : var(--zoro-primary);
+}

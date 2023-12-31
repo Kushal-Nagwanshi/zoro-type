@@ -385,7 +385,7 @@ export function getWidth(divName) {
 }
 
 export function isSpecialKey(key) {
-  console.log(key);
+  //console.log(key);
   if (key.length > 1) return true;
   return false;
 }
