@@ -1,7 +1,7 @@
-"Roronoa ", 
+"Roronoa ",
 "Zoro ",
-"is"  
-"a ", 
+"is"
+"a ",
 "fictional ",
 "character ",
 "in ",
@@ -101,9 +101,9 @@
 "period ",
 "under ",
 "the ",
-"“Strongest ",
+'"Strongest ',
 "Swordsman ",
 "in ",
 "the ",
-"World”, ",
+'World", ',
 "Dracule."
